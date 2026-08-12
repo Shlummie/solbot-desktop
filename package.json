@@ -1,0 +1,89 @@
+{
+  "name": "solbot-desktop",
+  "version": "1.0.0",
+  "description": "Electron desktop control room for Solana wallet orchestration with dry-run safety defaults",
+  "main": "dist-electron/main/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development vite",
+    "dev:renderer": "cross-env NODE_ENV=development vite",
+    "dev:electron": "cross-env NODE_ENV=development electron .",
+    "build": "tsc --noEmit && vite build",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "preview": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@solana/spl-token": "^0.4.15",
+    "@solana/web3.js": "^1.98.4",
+    "bs58": "^6.0.0",
+    "p-limit": "^7.1.1",
+    "pino": "^9.11.0",
+    "quick-lru": "^7.2.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "zod": "^4.1.11",
+    "zustand": "^5.0.8"
+  },
+  "overrides": {
+    "bn.js@>=5 <6": "5.2.5",
+    "brace-expansion@>=2 <3": "2.1.4",
+    "rpc-websockets@9.2.0": "9.3.10",
+    "ws@>=7 <8": "7.5.13",
+    "ws@>=8 <9": "8.21.3"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.8.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/bs58": "^4.0.4",
+    "@types/node": "^24.5.2",
+    "@types/react": "^19.1.14",
+    "@types/react-dom": "^19.1.9",
+    "@typescript-eslint/eslint-plugin": "^8.44.1",
+    "@typescript-eslint/parser": "^8.44.1",
+    "@vitejs/plugin-react": "^5.0.3",
+    "cross-env": "^10.0.0",
+    "electron": "^43.4.0",
+    "electron-builder": "^26.0.12",
+    "eslint": "^9.36.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.22",
+    "jsdom": "^27.0.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.7",
+    "vite-plugin-electron": "^0.29.0",
+    "vitest": "^3.2.4"
+  },
+  "build": {
+    "appId": "com.solbot.app",
+    "files": [
+      "dist",
+      "dist-electron"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+node_modules/
+dist/
+dist-electron/
+release/
+.vite/
+.turbo/
+.DS_Store
+*.log
+coverage/
+*.tsbuildinfo
+.env*
+Thumbs.db
+config.json
+wallets/
+automation.json
+API ENDPOINT.txt
+
